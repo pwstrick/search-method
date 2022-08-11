@@ -2,7 +2,7 @@
  * @Author: strick
  * @LastEditors: strick
  * @Date: 2022-08-08 16:32:12
- * @LastEditTime: 2022-08-09 11:03:52
+ * @LastEditTime: 2022-08-11 10:44:17
  * @Description: 查找方法
  * @FilePath: /search-method/extension.js
  */
@@ -20,7 +20,7 @@ function activate(context) {
 		// 当前选中的代码所处的绝对位置
 		const dirPath = uri.fsPath;
 		// services的绝对目录
-		const serviceDir = path.resolve(dirPath, '../../services');
+		const serviceDir = dirPath.indexOf("routers/") >= 0 ? path.resolve(dirPath, '../../services') : path.resolve(dirPath, '../../../services');
 		// 获取选中文本
 		const doc = editor.document;
 		const selection = editor.selection;
